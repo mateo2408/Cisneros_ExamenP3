@@ -1,7 +1,7 @@
 using SQLite;
 namespace Cisneros_ExamenP3.Models;
 
-public class ClienteModel
+public class Cliente
 {
     [PrimaryKey, AutoIncrement]
     public int Id { get; set; }
