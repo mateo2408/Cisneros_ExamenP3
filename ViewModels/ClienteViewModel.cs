@@ -25,7 +25,7 @@ public partial class ClienteViewModel : ObservableObject
     public ClienteViewModel(ClienteRepository repository)
     {
         _repository = repository;
-        FechaNacimiento = "07/07/2025";
+        FechaNacimiento = "24/08.2004";
         NombreUsuario = "Mateo Cisneros";
     }
 
