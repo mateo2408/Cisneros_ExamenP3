@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cisneros_ExamenP3.Pages.LogsPage"
+             Title="Logs de Actividad">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <!-- Refresh button -->
+        <Button Grid.Row="0" 
+                Text="Actualizar Logs" 
+                Command="{Binding ObtenerLogsCommand}" 
+                Margin="10"
+                BackgroundColor="Purple"
+                TextColor="White" />
+        
+        <!-- Logs list -->
+        <CollectionView Grid.Row="1" 
+                        ItemsSource="{Binding Logs}"
+                        BackgroundColor="Black">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="5">
+                        <Frame BackgroundColor="DarkGray" 
+                               CornerRadius="3"
+                               Margin="2"
+                               Padding="8">
+                            <Label Text="{Binding .}" 
+                                   TextColor="White"
+                                   FontFamily="Courier"
+                                   FontSize="12" />
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.EmptyView>
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="No hay logs disponibles"
+                           FontSize="16"
+                           TextColor="Gray"
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="Los logs se crean cuando guardas clientes"
+                           FontSize="12"
+                           TextColor="Gray"
+                           HorizontalTextAlignment="Center" />
+                </StackLayout>
+            </CollectionView.EmptyView>
+        </CollectionView>
+    </Grid>
+    
+</ContentPage>
+

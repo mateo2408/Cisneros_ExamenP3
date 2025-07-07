@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cisneros_ExamenP3.Pages.ClientesPage"
+             Title="Lista de Clientes">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <!-- Refresh button -->
+        <Button Grid.Row="0" 
+                Text="Actualizar Lista" 
+                Command="{Binding ObtenerClientesCommand}" 
+                Margin="10"
+                BackgroundColor="Blue"
+                TextColor="White" />
+        
+        <!-- Clients list -->
+        <CollectionView Grid.Row="1" 
+                        ItemsSource="{Binding Clientes}"
+                        BackgroundColor="White">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="15" RowDefinitions="Auto,Auto,Auto,Auto">
+                        <Frame Grid.RowSpan="4" 
+                               BackgroundColor="LightBlue" 
+                               CornerRadius="5"
+                               Margin="5"
+                               Padding="10">
+                            <Grid RowDefinitions="Auto,Auto,Auto,Auto">
+                                <Label Grid.Row="0" 
+                                       Text="{Binding Nombre}" 
+                                       FontAttributes="Bold"
+                                       FontSize="16" />
+                                <Label Grid.Row="1" 
+                                       Text="{Binding Empresa}"
+                                       FontSize="14" />
+                                <Label Grid.Row="2" 
+                                       Text="{Binding AntiguedadMeses, StringFormat='Antigüedad: {0} meses'}"
+                                       FontSize="12" />
+                                <Label Grid.Row="3" 
+                                       Text="{Binding Activo, StringFormat='Estado: {0}'}"
+                                       FontSize="12"
+                                       TextColor="Green" />
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.EmptyView>
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="No hay clientes registrados"
+                           FontSize="16"
+                           TextColor="Gray"
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="Usa la pestaña 'Registrar' para añadir clientes"
+                           FontSize="12"
+                           TextColor="Gray"
+                           HorizontalTextAlignment="Center" />
+                </StackLayout>
+            </CollectionView.EmptyView>
+        </CollectionView>
+    </Grid>
+    
+</ContentPage>

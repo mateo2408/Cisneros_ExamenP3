@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cisneros_ExamenP3.Pages.RegistroPage"
+             Title="Registro de Clientes">
+    
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <!-- Header with name and date -->
+            <Label Text="{Binding NombreUsuario}" 
+                   FontSize="18" 
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+            <Label Text="{Binding FechaNacimiento}" 
+                   FontSize="16" 
+                   HorizontalOptions="Center" />
+            
+            <!-- Client registration form -->
+            <Frame BackgroundColor="LightGray" Padding="15">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Datos del Cliente" FontSize="16" FontAttributes="Bold" />
+                    
+                    <Entry Placeholder="Nombre del Cliente" 
+                           Text="{Binding Nombre}" />
+                    
+                    <Entry Placeholder="Empresa" 
+                           Text="{Binding Empresa}" />
+                    
+                    <Entry Placeholder="Antigüedad en Meses (máx. 150)" 
+                           Text="{Binding AntiguedadMeses}" 
+                           Keyboard="Numeric" />
+                    
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox IsChecked="{Binding Activo}" />
+                        <Label Text="Cliente Activo" VerticalOptions="Center" />
+                    </StackLayout>
+                </VerticalStackLayout>
+            </Frame>
+            
+            <!-- Error message -->
+            <Label Text="{Binding Error}" 
+                   TextColor="Red" 
+                   IsVisible="{Binding Error}"
+                   FontAttributes="Bold" />
+            
+            <!-- Action buttons -->
+            <Button Text="Guardar Cliente" 
+                    Command="{Binding GuardarCommand}"
+                    BackgroundColor="Green"
+                    TextColor="White" />
+            
+            <Button Text="Limpiar Campos" 
+                    Command="{Binding LimpiarCamposCommand}"
+                    BackgroundColor="Orange"
+                    TextColor="White" />
+        </VerticalStackLayout>
+    </ScrollView>
+    
+</ContentPage>
+
