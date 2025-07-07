@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cisneros_ExamenP3", "Cisneros_ExamenP3.csproj", "{DFEB2688-76AE-40D8-9323-74DB85D69025}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFEB2688-76AE-40D8-9323-74DB85D69025}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFEB2688-76AE-40D8-9323-74DB85D69025}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFEB2688-76AE-40D8-9323-74DB85D69025}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFEB2688-76AE-40D8-9323-74DB85D69025}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
