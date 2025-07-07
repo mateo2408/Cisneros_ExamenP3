@@ -13,7 +13,7 @@ public partial class ClientesPage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        // Automatically load clients when the page appears
+        
         if (BindingContext is ClienteViewModel viewModel)
         {
             await viewModel.ObtenerClientesCommand.ExecuteAsync(null);

@@ -16,10 +16,8 @@ public class ClienteRepository
         _db = new SQLiteAsyncConnection(dbPath);
         _db.CreateTableAsync<Cliente>().Wait();
         
-        // Use AppData directory for runtime logs (this is the standard approach)
         _logPath = Path.Combine(FileSystem.AppDataDirectory, $"Logs_Cisneros.txt");
         
-        // Initialize log file if it doesn't exist
         InitializeLogFile();
     }
 
@@ -36,7 +34,7 @@ public class ClienteRepository
 
     public async Task<bool> AddClienteAsync(Cliente cliente)
     {
-        if (cliente.AntiguedadMeses > 150) // 1500 días / 10 días por mes
+        if (cliente.AntiguedadMeses > 150)
             return false;
 
         await _db.InsertAsync(cliente);

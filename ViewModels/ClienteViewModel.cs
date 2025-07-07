@@ -25,8 +25,8 @@ public partial class ClienteViewModel : ObservableObject
     public ClienteViewModel(ClienteRepository repository)
     {
         _repository = repository;
-        FechaNacimiento = "07/07/2025"; // Cambia por tu fecha real
-        NombreUsuario = "Mateo Cisneros"; // Cambia por tu nombre real
+        FechaNacimiento = "07/07/2025";
+        NombreUsuario = "Mateo Cisneros";
     }
 
     public string NombreUsuario { get; }
@@ -68,7 +68,7 @@ public partial class ClienteViewModel : ObservableObject
         else
         {
             Error = null;
-            await ObtenerClientesAsync(); // Refresh the list
+            await ObtenerClientesAsync();
         }
     }
 

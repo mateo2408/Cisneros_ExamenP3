@@ -13,7 +13,6 @@ public partial class LogsPage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        // Automatically load logs when the page appears
         if (BindingContext is ClienteViewModel viewModel)
         {
             await viewModel.ObtenerLogsCommand.ExecuteAsync(null);
