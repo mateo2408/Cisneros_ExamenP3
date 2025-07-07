@@ -15,7 +15,23 @@ public class ClienteRepository
     {
         _db = new SQLiteAsyncConnection(dbPath);
         _db.CreateTableAsync<Cliente>().Wait();
-        _logPath = Path.Combine(FileSystem.AppDataDirectory, $"Logs_{apellido}.txt");
+        
+        // Use AppData directory for runtime logs (this is the standard approach)
+        _logPath = Path.Combine(FileSystem.AppDataDirectory, $"Logs_Cisneros.txt");
+        
+        // Initialize log file if it doesn't exist
+        InitializeLogFile();
+    }
+
+    private void InitializeLogFile()
+    {
+        if (!File.Exists(_logPath))
+        {
+            var header = $"# Log File - Logs_{Path.GetFileNameWithoutExtension(_logPath)}.txt\n" +
+                        $"# Created on {DateTime.Now:dd/MM/yyyy HH:mm}\n" +
+                        $"# Client registration logs\n\n";
+            File.WriteAllText(_logPath, header);
+        }
     }
 
     public async Task<bool> AddClienteAsync(Cliente cliente)
