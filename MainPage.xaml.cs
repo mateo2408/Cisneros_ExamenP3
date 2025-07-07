@@ -1,23 +1,12 @@
-﻿namespace Cisneros_ExamenP3;
+﻿using Cisneros_ExamenP3.ViewModels;
 
-public partial class MainPage : ContentPage
+namespace Cisneros_ExamenP3;
+
+public partial class MainPage : TabbedPage
 {
-    int count = 0;
-
-    public MainPage()
+    public MainPage(ClienteViewModel viewModel)
     {
         InitializeComponent();
-    }
-
-    private void OnCounterClicked(object sender, EventArgs e)
-    {
-        count++;
-
-        if (count == 1)
-            CounterBtn.Text = $"Clicked {count} time";
-        else
-            CounterBtn.Text = $"Clicked {count} times";
-
-        SemanticScreenReader.Announce(CounterBtn.Text);
+        BindingContext = viewModel;
     }
 }
