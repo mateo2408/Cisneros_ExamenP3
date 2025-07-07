@@ -1,14 +1,17 @@
 using SQLite;
+using Cisneros_ExamenP3.Models;
 using System.IO;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Cisneros_ExamenP3.Repository;
 
-public class ClienteService
+public class ClienteRepository
 {
     readonly SQLiteAsyncConnection _db;
     readonly string _logPath;
 
-    public ClienteService(string dbPath, string apellido)
+    public ClienteRepository(string dbPath, string apellido)
     {
         _db = new SQLiteAsyncConnection(dbPath);
         _db.CreateTableAsync<Cliente>().Wait();
@@ -28,5 +31,5 @@ public class ClienteService
 
     public Task<List<Cliente>> GetClientesAsync() => _db.Table<Cliente>().ToListAsync();
 
-    public string[] GetLogs() => File.Exists(_logPath) ? File.ReadAllLines(_logPath) : Array.Empty<string>();
+    public string[] GetLogs() => File.Exists(_logPath) ? File.ReadAllLines(_logPath) : System.Array.Empty<string>();
 }
